@@ -16,7 +16,5 @@
       return;
     }
     errorEl.classList.remove('is-visible');
-    var frame = document.querySelector('iframe[name="brevo-frame"]');
-    if (frame) frame._submitted = true;
   });
 })();

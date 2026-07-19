@@ -1,27 +1,50 @@
 # Resonant Mindfulness — AGENTS.md
 
 ## Project type
-Single static HTML landing page (`resonant-mindfulness-landing.html`). No build system, no dependencies, no package manager.
+Static HTML funnel site in `site/` directory. No build system, no dependencies, no package manager.
 
 ## How to view
-Open `resonant-mindfulness-landing.html` in any browser — no dev server needed.
+Open `site/index.html` in any browser — no dev server needed.
+
+## File structure
+```
+/
+├── site/                    ← deployable website root
+│   ├── index.html           ← landing page (entry point)
+│   ├── register.html        ← squeeze page (email capture)
+│   ├── thank-you.html       ← confirmation page
+│   ├── css/style.css        ← shared stylesheet
+│   ├── js/main.js           ← shared JS (scroll reveals + form handler)
+│   ├── assets/images/       ← images
+│   └── _redirects           ← Netlify clean URL rules
+├── docs/superpowers/        ← specs and plans
+├── AGENTS.md
+└── resonant-mindfulness-landing.html  ← legacy single-file version
+```
+
+## Funnel flow
+```
+index.html → [Save My Spot] → register.html → [submit email] → thank-you.html
+```
 
 ## Architecture
-- **Single file**: all HTML, CSS (embedded `<style>`), and JS (embedded `<script>`) in one file
+- **Shared CSS/JS** — one `style.css` and one `main.js` used by all 3 pages
 - **Fonts**: Google Fonts via `<link>` — Fraunces (display), Spectral (body), Caveat (handwriting/accents)
 - **Animations**: IntersectionObserver triggers `.fade-up → .is-visible` for scroll reveals; SVG loop icon has CSS `breathe` keyframe animation
-- **No framework, no router, no assets folder** — everything including SVG icons is inline
+- **Form**: `register.html` uses a Brevo-ready form with JS handler in `main.js`
+- **No framework, no build step** — pure static HTML
 - **Responsive** via CSS media queries at 860px, 600px, 360px breakpoints
 - **Accessibility**: `prefers-reduced-motion` respected for both CSS animations and JS scroll-behavior
+- **Netlify-ready**: `_redirects` provides clean URLs (`/register`, `/thank-you`)
 
 ## Conventions
-- CSS custom properties (`--paper`, `--teal`, etc.) define the full color palette and typography — never hardcode color values
-- Class naming is descriptive lowercase with hyphens (`.hero-grid`, `.btn-primary`, `.who-yes`)
+- CSS custom properties (`:root` variables) define the full color palette and typography — never hardcode color values
+- Class naming is descriptive lowercase with hyphens (`.hero-grid`, `.btn-primary`, `.who-yes`, `.squeeze-card`, `.thanks-card`)
 - SVG loop icon is reused as the visual motif; uses class `.loop` with `.loop-small` and `.loop-breathe` variants
-- All section content is prose-driven marketing copy — edits are text changes, not template logic
 
 ## Common tasks
 - **Edit copy**: find the section by class name (`.hero h1`, `.mirror p`, `.card h3`, etc.) and update text directly
-- **Change colors**: edit `:root` CSS variables at lines 11-28
-- **Add a section**: copy an existing `<section>` block, adapt class / content, and add its `.fade-up` observer will auto-register
-- **Update CTA link**: `#signup` anchors in the header and hero point to the `#signup` section at line 602; the final CTA button (`#signup` section) has `href="#"` — update to actual signup URL when live
+- **Change colors**: edit `:root` CSS variables in `site/css/style.css`
+- **Add a page**: create `.html` file in `site/`, reference shared CSS/JS same as existing pages
+- **Connect Brevo**: replace `action="#"` in `site/register.html` with Brevo form action URL; remove or update JS handler in `site/js/main.js`
+- **Deploy**: upload `site/` folder to Netlify (drag-drop or Git)

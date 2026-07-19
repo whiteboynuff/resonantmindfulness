@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Resonant Mindfulness — Reserve Your Spot</title>
+<meta name="description" content="Join the free Nervous System Reset workshop. Register for the next session.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .squeeze {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .squeeze-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 0;
+  }
+  .squeeze-card {
+    background: var(--cream);
+    border-radius: 26px;
+    padding: 52px 44px;
+    max-width: 520px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 12px 40px rgba(36,72,77,0.12);
+  }
+  .squeeze-card h1 {
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    margin-bottom: 12px;
+  }
+  .squeeze-card p {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    margin-bottom: 28px;
+  }
+  .form-group {
+    margin-bottom: 18px;
+    text-align: left;
+  }
+  .form-group label {
+    display: block;
+    font-family: var(--body);
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .form-group input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid var(--paper-line);
+    border-radius: 12px;
+    font-family: var(--body);
+    font-size: 1rem;
+    color: var(--ink);
+    background: var(--paper);
+    transition: border-color .25s ease;
+    box-sizing: border-box;
+  }
+  .form-group input:focus {
+    outline: none;
+    border-color: var(--teal);
+  }
+  .squeeze-card .btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 1.05rem;
+    margin-top: 6px;
+  }
+  .form-trust {
+    font-family: var(--hand);
+    font-size: 1rem;
+    color: var(--ink-soft);
+    margin-top: 18px;
+  }
+  .form-error {
+    color: var(--rose);
+    font-size: 0.85rem;
+    margin-top: 10px;
+    display: none;
+  }
+  .form-error.is-visible { display: block; }
+  .squeeze-card .loop-breathe {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 18px;
+  }
+  @media (max-width: 600px) {
+    .squeeze-card { padding: 36px 24px; }
+  }
+</style>
+</head>
+<body class="squeeze">
+
+<header>
+  <div class="wrap">
+    <div class="wordmark">Resonant <span>Mindfulness</span></div>
+    <a class="btn btn-primary" href="index.html">Back to Home</a>
+  </div>
+</header>
+
+<main class="squeeze-main">
+  <div class="wrap">
+    <div class="squeeze-card fade-up is-visible">
+
+      <svg class="loop loop-breathe" viewBox="0 0 120 120"><path d="M60,14 C92,14 108,40 108,62 C108,90 84,108 55,108 C26,108 8,90 8,60 C8,34 26,11 51,9"/></svg>
+
+      <span class="eyebrow" style="display:block;text-align:center;">Reserve Your Free Spot</span>
+      <h1>Your Nervous System Reset</h1>
+      <p>Enter your email below and we'll send you the workshop details plus your free copy of the Resonant Mindfulness book.</p>
+
+      <!-- ============================================ -->
+      <!-- BREVO FORM — replace action URL with your     -->
+      <!-- Brevo list form action when live              -->
+      <!-- ============================================ -->
+      <form id="register-form" action="#" method="POST">
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="EMAIL" placeholder="you@example.com" required autocomplete="email">
+        </div>
+        <button class="btn btn-primary" type="submit">Reserve My Free Spot →</button>
+        <p class="form-error" id="form-error">Please enter a valid email address.</p>
+      </form>
+      <!-- ============================================ -->
+
+      <p class="form-trust">Free live workshop · Runs every two weeks · Unsubscribe anytime</p>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">Resonant Mindfulness — a practice older than written history, made to fit inside your ordinary Tuesday.</div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

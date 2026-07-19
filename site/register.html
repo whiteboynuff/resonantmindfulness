@@ -116,19 +116,17 @@
       <h1>Your Nervous System Reset</h1>
       <p>Enter your email below and we'll send you the workshop details plus your free copy of the Resonant Mindfulness book.</p>
 
-      <!-- ============================================ -->
-      <!-- BREVO FORM — replace action URL with your     -->
-      <!-- Brevo list form action when live              -->
-      <!-- ============================================ -->
-      <form id="register-form" action="#" method="POST">
+      <form id="register-form" action="https://a9a9560a.sibforms.com/serve/MUIFALECXTvk2uVS0cTUozZeLIowc78JK5jVvD9FeWpv-h_3UCM1LSrw9jfqru3aQjBjP4-ccu3Sx5ceZkqX0oJOiO88aWjFBLdc-ZMJI25ajkE9M3msilnksWvf4_7iA74OSMlnn7uw73cS_Zgqmzg0tFInQVC8k21f4zq62SGkBDN347wlv6cStka_X8gkqxJf0whJKrDnExCejQ==" method="POST" target="brevo-frame">
+        <iframe name="brevo-frame" style="display:none" onload="if (this._submitted) { window.location.href='thank-you.html'; }"></iframe>
         <div class="form-group">
-          <label for="email">Email address</label>
-          <input type="email" id="email" name="EMAIL" placeholder="you@example.com" required autocomplete="email">
+          <label for="EMAIL">Email address</label>
+          <input type="email" id="EMAIL" name="EMAIL" placeholder="you@example.com" required autocomplete="email">
         </div>
         <button class="btn btn-primary" type="submit">Reserve My Free Spot →</button>
         <p class="form-error" id="form-error">Please enter a valid email address.</p>
+        <input type="text" name="email_address_check" value="" style="position:absolute;left:-9999px" tabindex="-1">
+        <input type="hidden" name="locale" value="en">
       </form>
-      <!-- ============================================ -->
 
       <p class="form-trust">Free live workshop · Runs every two weeks · Unsubscribe anytime</p>
 

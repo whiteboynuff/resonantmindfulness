@@ -16,5 +16,6 @@
       return;
     }
     errorEl.classList.remove('is-visible');
+    setTimeout(function() { window.location.href = 'thank-you.html'; }, 2500);
   });
 })();
